@@ -1,4 +1,5 @@
 require "thor"
+require 'colorize'
 
 module Banhpho
 	class CLI < Thor
@@ -13,10 +14,12 @@ module Banhpho
 			abort("Error: argument '#{dir}' is not a valid directory") unless File.directory?(dir)
 
 			compressInDir(dir)
-			puts("==========")
-			puts("#{@count} files compressed!")
+			puts("=" * 20)
+			msg = "#{@count} files compressed!"
+			color = @count == 0 ? :red : :blue
+			puts msg.colorize(color)
 			if @originalSize > 0 then
-				puts("original size: #{prettyFileSize(@originalSize)}, after compression: #{prettyFileSize(@newSize)}, compression ratio: #{(1 - @newSize.to_f / @originalSize).round(4) * 100}%")
+				puts("original size: #{prettyFileSize(@originalSize)}, after compression: #{prettyFileSize(@newSize)}, compression ratio: #{(1 - @newSize.to_f / @originalSize).round(4) * 100}%".colorize(:blue))
 			end
 		end
 
