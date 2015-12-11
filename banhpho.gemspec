@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["heartace"]
   spec.email         = ["love@heartace.me"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{Batch image compressing tool}
+  spec.description   = %q{A wrapper of pngquant for compressing all PNG files in a directory}
   spec.homepage      = "https://github.com/heartace/banhpho"
   spec.license       = "MIT"
 
