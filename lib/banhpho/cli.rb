@@ -2,6 +2,7 @@ require "thor"
 
 module Banhpho
 	class CLI < Thor
+
 		desc "compress DIR", "compress all png files in DIR"
 		def compress(dir)
 			@count = 0
@@ -19,6 +20,12 @@ module Banhpho
 			end
 		end
 
+		desc "version", "print the version of current release"
+		map ['-v', 'v', '--version'] => :version
+		def version()
+			puts VERSION
+		end
+
 		no_commands do
 			def compressInDir (dir)
 				Dir.foreach(dir) do |item|
@@ -32,8 +39,9 @@ module Banhpho
 					ext = File.extname(path).downcase
 					if ext == ".png" then
 						@originalSize += File.size(path)
+						exePath = path.gsub(/ /, "\\ ")
 						puts("  compressing file: #{path}")
-						%x(pngquant --force --ext .png --skip-if-larger -- #{path})
+						%x(pngquant --force --ext .png --skip-if-larger -- #{exePath})
 						@count += 1
 						@newSize += File.size(path)
 					end
