@@ -4,6 +4,10 @@
 
 A wrapper of [pngquant](https://pngquant.org/) for compressing all PNG files in a directory.
 
+## Dependency
+
+Make sure you already download [pngquant](https://pngquant.org/releases.html) and put its location in `PATH` so `banhpho` can locate the executable.
+
 ## Installation
 
     $ gem install banhpho
