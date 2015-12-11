@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/banhpho.svg)](https://badge.fury.io/rb/banhpho)
+
 # Banh Pho
 
 A wrapper of [pngquant](https://pngquant.org/) for compressing all PNG files in a directory.
