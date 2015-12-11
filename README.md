@@ -1,26 +1,14 @@
-# Banh-Pho
+# Banh Pho
 
 A wrapper of [pngquant](https://pngquant.org/) for compressing all PNG files in a directory.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'banhpho'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install banhpho
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ banhpho compress [DIR]
 
 ## Development
 
