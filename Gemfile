@@ -4,3 +4,4 @@ source 'https://rubygems.org'
 gemspec
 gem 'thor', '~> 0.19.1'
 gem 'colorize'
+gem 'progress_bar'
