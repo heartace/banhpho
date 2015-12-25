@@ -1,6 +1,7 @@
 require "thor"
 require 'colorize'
 require 'progress_bar'
+require 'terminal-table'
 
 module Banhpho
 	class CLI < Thor
@@ -26,12 +27,15 @@ module Banhpho
 			end
 
 			count = imgs.size
-			color = count == 0 ? :red : :green
-			puts ("=" * 20).colorize(color)
-			msg = "#{count} files compressed!"
-			puts msg.colorize(color)
-			if originalSize > 0 then
-				puts("original size: #{prettyFileSize(originalSize)}, after compression: #{prettyFileSize(newSize)}, compression ratio: #{(1 - newSize.to_f / originalSize).round(4) * 100}%".colorize(color))
+
+			if count > 0
+				rows = []
+				rows << ['Number of files', count]
+				rows << ['Original size', prettyFileSize(originalSize)]
+				rows << ['New size', prettyFileSize(newSize)]
+				rows << ['Compression ratio', "#{(1 - newSize.to_f / originalSize).round(4) * 100}%"]
+				report = Terminal::Table.new :title => 'Task completed', :rows => rows
+				puts report
 			end
 		end
 
@@ -39,6 +43,11 @@ module Banhpho
 		map ['-v', 'v', '--version'] => :version
 		def version()
 			puts VERSION
+		end
+
+		desc "author", "print the author info"
+		def author()
+			puts 'Created by heartace [love@heartace.me], with ' + '♥'.colorize(:magenta)
 		end
 
 		no_commands do
