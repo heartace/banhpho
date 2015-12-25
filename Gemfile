@@ -5,3 +5,4 @@ gemspec
 gem 'thor', '~> 0.19.1'
 gem 'colorize'
 gem 'progress_bar'
+gem 'terminal-table'
